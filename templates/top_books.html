@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css">
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="display:flex;justify-content: center;padding:0; margin: 10px 0 0 0">
+        <canvas id="myChart" width="1400px" height="800px">
+            <script>
+                Chart.defaults.global.responsive = false;
+
+                var chartData = {
+                    labels: [{% for item in labels %}
+                        "{{item|safe}}",
+                    {% endfor %}],
+                    datasets: [{
+                        label: '{{ legend }}',
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: ["#470000", "#5e0000", "#750000", "#8c0000", "#a30000",
+                            "#bb0000", "#d20000", "#e90000", "#ff0101", "#ff1818",
+                            "#ff2f2f", "#ff4646", "#ff5d5d", "#ff7474", "#ff8b8b",
+                            "#ffa3a3", "#ffbaba", "#ffd1d1", "#ffe8e8", "#ffffff"],
+                        borderColor: "white",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "white",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "white",
+                        pointHoverBorderColor: "white",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: [{% for item in values %}
+                            {{item}},
+                        {% endfor %}],
+                        spanGaps: false
+                    }]
+                }
+
+                var ctx = document.getElementById("myChart").getContext("2d");
+
+                var myChart = new Chart(ctx, {
+                    type: 'horizontalBar',
+                    data: chartData,
+                    options: {
+                        legend: {
+                            labels: {
+                                fontColor: "white",
+                                fontSize: 18
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    fontColor: "white",
+                                    fontSize: 18,
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    fontColor: "white",
+                                    fontSize: 14,
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </canvas>
+    </div>
+{% endblock %}

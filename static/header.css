@@ -1,0 +1,125 @@
+.header {
+    background-color: black;
+    width: 100vw;
+}
+
+@font-face {
+    font-family: ISKRA regular;
+    src: url(IskraCYR-Regular.otf);
+}
+
+@font-face {
+    font-family: ISKRA mediumItalic;
+    src: url(IskraCYR-MediumItalic.otf);
+}
+
+.menu {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    padding: 0;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+ul li {
+    list-style: none;
+    display: inline;
+}
+
+.menu-item {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 0 10px;
+    color: white;
+    font-family: ISKRA mediumItalic;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+ul li a::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: white;
+    transition: 0.3s;
+}
+
+ul li a:hover {
+    color: black;
+}
+
+ul li a:hover::before {
+    animation: animate .3s linear forwards;
+}
+
+@keyframes animate {
+    0% {
+        top: calc(50% - 2px);
+        left: -100%;
+        height: 4px;
+        z-index: 5;
+    }
+
+    50% {
+        top: calc(50% - 2px);
+        left: 0;
+        height: 4px;
+        z-index: 5;
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+ul.primary li a {
+    display: block;
+}
+
+ul.primary li:last-child a {
+    border-right: none;
+}
+
+ul.sub {
+    position: absolute;
+    top: 134%;
+    left: 90%;
+    padding: 0;
+    z-index: 500;
+    box-shadow: 2px 2px 0 #BEBEBE;
+    width: fit-content;
+    display: none;
+}
+
+ul.sub li {
+    float: none;
+    margin: 0;
+}
+
+ul.sub li a {
+    border-bottom: 1px dotted #ccc;
+    border-right: none;
+    padding: 5px 15px;
+}
+
+ul.sub li:last-child a {
+    border-bottom: none;
+}
+
+ul.primary li:hover ul {
+    display: block;
+    background: #DAF1F7;
+}

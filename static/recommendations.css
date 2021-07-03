@@ -1,0 +1,55 @@
+@font-face {
+    font-family: ISKRA regular;
+    src: url(../static/IskraCYR-Regular.otf);
+}
+
+@font-face {
+    font-family: ISKRA mediumItalic;
+    src: url(../static/IskraCYR-MediumItalic.otf);
+}
+
+.btn-danger {
+    /*background-color: #470000;*/
+    color: white;
+    border-width: 1px;
+    border-color: white;
+}
+
+.bootstrap-select .dropdown-menu {
+    max-width: 100% !important;
+}
+
+.button-search {
+    background-image: url("../static/magnifier.jpg");
+    background-size: contain;
+    width: 38px;
+    height: 38px;
+}
+
+.book-img {
+    height: 25vh;
+    width: auto;
+    align-items: center;
+}
+
+.book-img-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.page-text {
+    color: white;
+    font-size: 24px;
+    margin: 10px 0 0 0;
+    font-family: "ISKRA mediumItalic";
+}
+
+.select-div {
+    padding: 0 0 0 15px;
+    display: flex;
+    justify-content: center;
+    font-family: "ISKRA mediumItalic";
+    font-size: 18px;
+    color: white;
+}

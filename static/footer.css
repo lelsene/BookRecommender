@@ -1,0 +1,27 @@
+.footer {
+    background-color: black;
+    bottom: 0;
+    height: 50px;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    font-family: ISKRA mediumItalic;
+    font-size: 20px;
+    color: white;
+}
+
+@font-face {
+    font-family: ISKRA regular;
+    src: url(IskraCYR-Regular.otf);
+}
+
+@font-face {
+    font-family: ISKRA mediumItalic;
+    src: url(IskraCYR-MediumItalic.otf);
+}
+
+.footer-text {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px;
+}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css">
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="display:flex;justify-content: center;padding:0; margin: 10px 0 0 0">
+        <canvas id="myChart" width="1400px" height="800px">
+            <script>
+                Chart.defaults.global.responsive = false;
+                var chartData = {
+                    labels: [{% for item in labels %}
+                        "{{item}}",
+                    {% endfor %}],
+                    datasets: [{
+                        backgroundColor: ["#470000", "#560000", "#640000", "#730000", "#820000",
+                            "#900000", "#9f0000", "#ad0000", "#bc0000", "#cb0000",
+                            "#d90000", "#e80000", "#f70000", "#ff0606", "#ff1515",
+                            "#ff2323", "#ff3232", "#ff4141", "#ff4f4f", "#ff5e5e",
+                            "#ff6d6d", "#ff7b7b", "#ff8a8a", "#ff9999", "#ffa7a7",
+                            "#ffb6b6", "#ffc4c4", "#ffd3d3", "#ffe2e2", "#fff0f0",
+                            "#ffffff"],
+                        borderColor: "black",
+                        borderWidth: 0.5,
+                        data: [{% for item in values %}
+                            {{item}},
+                        {% endfor %}],
+                    }]
+                }
+
+                var ctx = document.getElementById("myChart").getContext("2d");
+
+                var myChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: chartData,
+                    options: {
+                        legend: {
+                            labels: {
+                                fontColor: "white",
+                                fontSize: 18,
+                            }
+                        },
+                        animation: {
+                            animateRotate: true,
+                            animateScale: true,
+                        }
+                    }
+                });
+            </script>
+        </canvas>
+    </div>
+{% endblock %}

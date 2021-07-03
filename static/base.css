@@ -1,0 +1,12 @@
+html,
+body {
+    height: 95vh;
+    margin: auto;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #151515;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
