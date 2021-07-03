@@ -63,3 +63,10 @@
 - FuzzyWuzzy 0.18.0
 - Chart JS 2.9.4
 - Bootstrap-select 1.14.0
+
+## Пример работы
+![1](https://user-images.githubusercontent.com/43280704/124367205-3a6e1580-dc66-11eb-902e-2aa54e091980.png)
+![2](https://user-images.githubusercontent.com/43280704/124367208-3e019c80-dc66-11eb-83c6-d8e6517e7a94.png)
+![3](https://user-images.githubusercontent.com/43280704/124367210-4063f680-dc66-11eb-8560-3b263524e7f5.png)
+![4](https://user-images.githubusercontent.com/43280704/124367211-42c65080-dc66-11eb-961c-36208b6196d3.png)
+
